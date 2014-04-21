@@ -1,0 +1,21 @@
+﻿*
+{
+	font-family: Verdana;
+	font-size: 12px;
+	
+}
+
+.clear
+{
+	clear: both;
+}
+
+.largeHeading
+{
+	margin-top: 5px;
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+	color: #3a3a3a;
+	text-decoration: underline;
+}

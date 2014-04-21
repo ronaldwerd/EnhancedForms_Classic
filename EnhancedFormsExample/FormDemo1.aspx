@@ -1,0 +1,538 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="FormDemo1.aspx.cs" Inherits="_FormDemo1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="Stylesheets/Global.css" rel="stylesheet" type="text/css" />
+    <link href="Stylesheets/Form.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="Scripts/jquery-1.4.2.min.js"></script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <div style="margin: auto; width: 500px;">
+        
+            <h1 class="largeHeading">Signup form example!</h1>
+        
+            <!-- Begin Group 1 -->
+            <div id="formGroup1" class="formGroup" runat="server">
+                <span class="stepCaption">Step</span> <div class="stepCircle">1</div> <span class="stepHeading">Your name and e-mail.</span>
+                <div class="clear"></div>
+                <div class="formBlock, formPanel">
+                
+                    <!-- Email, Sex -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblEmail" runat="server" Text="E-mail*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_txtEmail" runat="Server"
+                                                  ControlToValidate="txtEmail" 
+                                                  ErrorMessage="Please enter your e-mail address."
+                                                  ToolTip="Please enter your e-mail address."
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblEmail"
+                                                  ControlLabelErrorCssClass="formLabelError"
+
+                                                  ValidationGroup="register1" />
+                            
+                            <asp:RegularExpressionValidator ID="vld_txtEmail_format" 
+                                                           ControlToValidate="txtEmail" 
+                                                           runat="server" 
+                                                           CssClass="formMessageError"
+                                                           Display="Static" 
+                                                           ErrorMessage="Invalid E-mail Address." 
+                                                           ValidationExpression="^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+                                                           ValidationGroup="register1" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtEmail"
+                                        runat="server"
+                                        Width="200px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblEmail"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; float: left; width: 240px; margin-left: 20px;">
+                        <div>
+
+                            <asp:label id="lblSex" runat="server" Text="Sex*" CssClass="formLabel" />
+                            <asp:RequiredFieldValidator ID="vld_lstSex" runat="server"
+                                                  ControlToValidate="lstSex" 
+                                                  ErrorMessage="Please enter your sex."
+                                                  ToolTip="Please enter your sex." 
+                                                  Display="Static"
+                                                  CssClass="formMessageError"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblSexName"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                   
+                                                  ValidationGroup="register1" />
+                        </div>
+                        
+                        
+                        <div>
+                        
+                            <asp:RadioButtonList ID="lstSex" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem Text="Male" Value="M" />
+                                <asp:ListItem Text="Female" Value="F" />
+                            </asp:RadioButtonList>
+                        
+                        </div>
+                        
+                    </div>
+                    <div class="clear" style="height: 10px;"></div>
+                    
+                
+                    <!-- First Name, Last Name -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblFirstName" runat="server" Text="First Name*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_txtFirstName" runat="Server"
+                                                  ControlToValidate="txtFirstName" 
+                                                  ErrorMessage="A first name is required."
+                                                  ToolTip="Please enter your first name." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblFirstName"
+                                                  ControlLabelErrorCssClass="formLabelError"
+
+                                                  ValidationGroup="register1" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtFirstName"
+                                        runat="server"
+                                        Width="200px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblFirstName"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; float: left; width: 240px; margin-left: 20px;">
+                        <div>
+                            <asp:label id="lblLastName" runat="server" Text="Last Name*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_txtLastName" runat="server"
+                                                  ControlToValidate="txtLastName" 
+                                                  ErrorMessage="A last name is required."
+                                                  ToolTip="Please enter your last name." 
+                                                  Display="None"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblLastName"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  
+                                                  ValidationGroup="register1" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtLastName" 
+                                        runat="server" 
+                                        Width="200px" 
+                                        CssClass="inputText" 
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblLastName"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- End Group 1 -->
+            
+            
+            <!-- Begin Group 2 -->
+            <div id="formGroup2" class="formGroup" runat="server" style="display: none"> <!-- display: none -->
+                <span class="stepCaption">Step</span> <div class="stepCircle">2</div> <span class="stepHeading">Your address.</span>
+                <div class="clear"></div>
+                <div class="formBlock, formPanel">
+                
+                    <!-- Street Address -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblAddress" runat="server" Text="Address*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_address" runat="Server"
+                                                  ControlToValidate="txtAddress" 
+                                                  ErrorMessage="Please enter your address."
+                                                  ToolTip="Please enter your first name." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblAddress"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register2" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtAddress"
+                                        runat="server"
+                                        Width="170px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblAddress"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                            <ef:TextBox ID="txtAddress2"
+                                        runat="server"
+                                        Width="170px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblAddress"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div class="clear" style="height: 10px;"></div>
+                
+                    <!-- City -->
+                    <div style="text-align: left; float: left; width: 200px">
+                        <div>
+                            <asp:label id="lblCity" runat="server" Text="City*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="RequiredFieldValidator5" runat="Server"
+                                                  ControlToValidate="txtCity" 
+                                                  ErrorMessage="Please enter your city."
+                                                  ToolTip="Please enter your city." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblCity"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register2" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtCity"
+                                        runat="server"
+                                        Width="170px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblCity"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; float: left; width: 150px">
+                        <div>
+                            <asp:label id="lblState" runat="server" Text="State*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_state" runat="server"
+                                                  ControlToValidate="lstState" 
+                                                  ErrorMessage="Please select a state."
+                                                  ToolTip="Please select a state." 
+                                                  Display="None"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblState"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register2" />
+                        </div>
+                        <div>
+                            <asp:DropDownList runat="server" CssClass="inputText" ID="lstState">
+                                <asp:ListItem Text="Please select" Value="" />
+                                <asp:ListItem Value="AL" Text="Alabama" />
+                                <asp:ListItem Value="AK" Text="Alaska" />
+                                <asp:ListItem Value="AZ" Text="Arizona" />
+                                <asp:ListItem Value="AR" Text="Arkansas" />
+                                <asp:ListItem Value="CA" Text="California" />
+                                <asp:ListItem Value="CO" Text="Colorado" />
+                                <asp:ListItem Value="CT" Text="Connecticut" />
+                                <asp:ListItem Value="DE" Text="Delaware" />
+                                <asp:ListItem Value="FL" Text="Florida" />
+                                <asp:ListItem Value="GA" Text="Georgia" />
+                                <asp:ListItem Value="GU" Text="Guam" />
+                                <asp:ListItem Value="HI" Text="Hawaii" />
+                                <asp:ListItem Value="ID" Text="Idaho" />
+                                <asp:ListItem Value="IL" Text="Illinois" />
+                                <asp:ListItem Value="IN" Text="Indiana" />
+                                <asp:ListItem Value="IA" Text="Iowa" />
+                                <asp:ListItem Value="KS" Text="Kansas" />
+                                <asp:ListItem Value="KY" Text="Kentucky" />
+                                <asp:ListItem Value="LA" Text="Louisiana" />
+                                <asp:ListItem Value="ME" Text="Maine" />
+                                <asp:ListItem Value="MD" Text="Maryland" />
+                                <asp:ListItem Value="MA" Text="Massachusetts" />
+                                <asp:ListItem Value="MI" Text="Michigan" />
+                                <asp:ListItem Value="MN" Text="Minnesota" />
+                                <asp:ListItem Value="MS" Text="Mississippi" />
+                                <asp:ListItem Value="MO" Text="Missouri" />
+                                <asp:ListItem Value="MT" Text="Montana" />
+                                <asp:ListItem Value="NE" Text="Nebraska" />
+                                <asp:ListItem Value="NV" Text="Nevada" />
+                                <asp:ListItem Value="NH" Text="New Hampshire" />
+                                <asp:ListItem Value="NJ" Text="New Jersey" />
+                                <asp:ListItem Value="NM" Text="New Mexico" />
+                                <asp:ListItem Value="NY" Text="New York" />
+                                <asp:ListItem Value="NC" Text="North Carolina" />
+                                <asp:ListItem Value="ND" Text="North Dakota" />
+                                <asp:ListItem Value="OH" Text="Ohio" />
+                                <asp:ListItem Value="OK" Text="Oklahoma" />
+                                <asp:ListItem Value="OR" Text="Oregon" />
+                                <asp:ListItem Value="PA" Text="Pennsylvania" />
+                                <asp:ListItem Value="PR" Text="Puerto Rico" />
+                                <asp:ListItem Value="RI" Text="Rhode Island" />
+                                <asp:ListItem Value="SC" Text="South Carolina" />
+                                <asp:ListItem Value="SD" Text="South Dakota" />
+                                <asp:ListItem Value="TN" Text="Tennessee" />
+                                <asp:ListItem Value="TX" Text="Texas" />
+                                <asp:ListItem Value="UT" Text="Utah" />
+                                <asp:ListItem Value="VT" Text="Vermont" />
+                                <asp:ListItem Value="VA" Text="Virginia" />
+                                <asp:ListItem Value="WA" Text="Washington" />
+                                <asp:ListItem Value="DC" Text="Washington DC" />
+                                <asp:ListItem Value="WV" Text="West Virginia" />
+                                <asp:ListItem Value="WI" Text="Wisconsin" />
+                                <asp:ListItem Value="WY" Text="Wyoming" />
+                            </asp:DropDownList>
+                            
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; float: left; width: 100px">
+                        <div>
+                            <asp:label id="lblZip" runat="server" Text="Zip*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_zip" runat="server"
+                                                  ControlToValidate="txtZip" 
+                                                  ErrorMessage="A zip code is required."
+                                                  ToolTip="Please enter your zip code." 
+                                                  Display="None"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblZip"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register2" />
+                                                  
+                        </div>
+                        <div>
+                             <ef:TextBox ID="txtZip"
+                                         runat="server"
+                                         Width="90px"
+                                         CssClass="inputText"
+                                         ClientFocusCssClass="inputTextFocus"
+                                         ClientFocusLabel="lblZip"
+                                         ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="clear" style="height: 10px;"></div>
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblPhoneNumber" runat="server" Text="Phone Number*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_phoneNumber" runat="Server"
+                                                  ControlToValidate="txtPhoneNumber" 
+                                                  ErrorMessage="Please enter your phone number."
+                                                  ToolTip="Please enter your phone number." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblPhoneNumber"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register2" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtPhoneNumber"
+                                        runat="server"
+                                        Width="170px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblPhoneNumber"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- End Group 2 -->
+            
+            
+            
+            <!-- Begin Group 3 -->
+            <div id="formGroup3" class="formGroup" runat="server" style="display: none">
+                <span class="stepCaption">Step</span> <div class="stepCircle">3</div> <span class="stepHeading">Choose a User ID.</span>
+                <div class="clear"></div>
+                <div class="formBlock, formPanel">
+                
+                    <!-- User ID -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblUserID" runat="server" Text="User ID*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_userId" runat="Server"
+                                                  ControlToValidate="txtUserID" 
+                                                  ErrorMessage="Please choose a user ID."
+                                                  ToolTip="Please choose a user ID." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblUserID"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register3" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtUserID"
+                                        runat="server"
+                                        Width="180px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblUserID"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+     
+                    <div class="clear" style="height: 10px;"></div>
+                    
+                
+                    <!-- Passwords -->
+                    <div style="text-align: left; float: left; width: 200px">
+                        <div>
+                            <asp:label id="lblPassword1" runat="server" Text="Password*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_password" runat="server"
+                                                  ControlToValidate="txtPassword1" 
+                                                  ErrorMessage="Please enter a password."
+                                                  ToolTip="Please confirm your password." 
+                                                  Display="None"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblPassword1"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register3" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtPassword1"
+                                        runat="server"
+                                        TextMode="Password"
+                                        Width="180px"
+                                        CssClass="inputText"
+                                        ClientFocusCssClass="inputTextFocus"
+                                        ClientFocusLabel="lblPassword1"
+                                        ClientFocusLabelCssClass="labelTextFocus">
+                            </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; float: left; width: 220px">
+                        <div>
+                            <asp:label id="lblPasswordConfirm" runat="server" Text="Confirm Password*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_passwordConfirm" runat="server"
+                                                  ControlToValidate="txtPassword2" 
+                                                  ErrorMessage="Please confirm your password."
+                                                  ToolTip="Please confirm your password." 
+                                                  Display="None"
+                                                   
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblPasswordConfirm"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register3" />
+                        </div>
+                        <div>
+                             <ef:TextBox ID="txtPassword2"
+                                         runat="server"
+                                         TextMode="Password"
+                                         Width="180px"
+                                         CssClass="inputText"
+                                         ClientFocusCssClass="inputTextFocus"
+                                         ClientFocusLabel="lblPasswordConfirm"
+                                         ClientFocusLabelCssClass="labelTextFocus" Height="16px">
+                             </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    <div class="clear" style="height: 10px;"></div>
+                    
+                    <!-- User Question, Answer -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblUserQuestion" runat="server" Text="Secret Question*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_secretQuestion" runat="Server"
+                                                  ControlToValidate="lstSecretQuestion" 
+                                                  ErrorMessage="Please choose a user ID."
+                                                  ToolTip="Please choose a user ID." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblUserQuestion"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register3" />
+                        </div>
+                        <div>
+                            <asp:DropDownList runat="server" CssClass="inputText" ID="lstSecretQuestion" style="width: 300px;">
+                                <asp:ListItem Text="Please select" Value="" />
+                                <asp:ListItem Value="1" Text="Where did you goto secondary school ?" />
+                                <asp:ListItem Value="2" Text="What is your favorite food ?" />
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    <div class="clear" style="height: 10px;"></div>
+                    
+                    <!-- User Question, Answer -->
+                    <div style="text-align: left; float: left; width: 240px">
+                        <div>
+                            <asp:label id="lblSecretAnswer" runat="server" Text="Secret Answer*" CssClass="formLabel" />
+                            <ef:RequiredFieldValidator ID="vld_lstSecretQuestion" runat="Server"
+                                                  ControlToValidate="txtSecretAnswer" 
+                                                  ErrorMessage="Please enter your secret answer."
+                                                  ToolTip="Please enter your secret answer." 
+                                                  Display="None"
+
+                                                  ControlErrorCssClass="inputTextError"
+                                                  ControlLabel="lblSecretAnswer"
+                                                  ControlLabelErrorCssClass="formLabelError"
+                                                  ValidationGroup="register3" />
+                        </div>
+                        <div>
+                            <ef:TextBox ID="txtSecretAnswer"
+                                         runat="server"
+                                         Width="300px"
+                                         CssClass="inputText"
+                                         ClientFocusCssClass="inputTextFocus"
+                                         ClientFocusLabel="lblSecretAnswer"
+                                         ClientFocusLabelCssClass="labelTextFocus" Height="16px">
+                             </ef:TextBox>
+                        </div>
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- End Group 3 -->
+            
+            
+            <div class="formBlock">
+                <ef:Button ID="btnSubmit" 
+                           runat="server" 
+                           Text="Continue"
+                           onclick="btnSubmit_Click" 
+                           CssClass="defaultButton"
+                           ValidationGroupStepping="true"
+                           ValidationGroupOrder="register1=formGroup2, register2=formGroup3"
+                           ValidationGroupEnd="register3" />
+            </div>
+            <div style="padding-top: 40px;">
+                Brought to you buy Ronald Douglas Consulting <br />(<a href="http://www.ronald-douglas.com">http://www.ronald-douglas.com</a>)
+            </div>
+            <!--
+            ValidationGroupOrder="register1=formGroup2"
+                           ValidationGroupStepping="true" 
+            -->
+        </div>
+    </form>
+</body>
+</html>
